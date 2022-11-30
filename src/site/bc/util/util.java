@@ -308,17 +308,17 @@ public class util {
 		try {
 			return utcFormater.format(date);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return null;
 	}
 
 	public static String formatdate(long date) {
-		// TODO Auto-generated method stub
 		return _df.format(date);
 	}
-
+	public static String formatdate() {
+		return formatdate(System.currentTimeMillis());
+	}
 	public static String formatfloat(double v, int dotnum) {
 		double q=Math.pow(10,dotnum);
 		double nv=Math.round(v*q);
@@ -334,7 +334,6 @@ public class util {
 	}
 
 	public static int ubyte(byte b) {
-		// TODO Auto-generated method stub
 		return 0xff&b;
 	}
 
@@ -433,5 +432,9 @@ public class util {
 	}
 	public static String uuid() {
 		return UUID.randomUUID().toString().replaceAll("-","");
+	}
+	public static double round(double v,int dotnum){
+		double q=Math.pow(10,dotnum);
+		return((0.0+Math.round(v*q))/q);
 	}
 }
